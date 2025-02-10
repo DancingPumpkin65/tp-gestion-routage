@@ -21,3 +21,12 @@ Route::get('/test', [App\Http\Controllers\TestController::class, 'show']);
 Route::get('/view', function () {
     return view('acceuil');
 });
+
+Route::get('/view', function () {
+    return view('acceuil');
+})->name('accueil');
+
+Route::get('/test', function () {
+    return view('test');
+});
+
