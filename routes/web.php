@@ -30,3 +30,14 @@ Route::get('/test', function () {
     return view('test');
 });
 
+Route::get('/home/{name}', function ($name) {
+    return "Bonjour $name";
+});
+
+Route::get('/home/{name}/{age}', function ($name, $age) {
+    return "bonsoir  $name, votre age est $age";
+});
+
+Route::get('/home/{name}/{age?}', function ($name, $age=null) {
+    return !$age ? "name: $name" : "name: $name, age: $age";
+});
