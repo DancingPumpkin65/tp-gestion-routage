@@ -15,3 +15,9 @@ Route::get('/acceuil', function () {
 });
 
 Route::get('/test', [App\Http\Controllers\TestController::class, 'index']);
+
+Route::get('/test', [App\Http\Controllers\TestController::class, 'show']);
+
+Route::get('/view', function () {
+    return view('acceuil');
+});
