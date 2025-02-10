@@ -41,3 +41,25 @@ Route::get('/home/{name}/{age}', function ($name, $age) {
 Route::get('/home/{name}/{age?}', function ($name, $age=null) {
     return !$age ? "name: $name" : "name: $name, age: $age";
 });
+
+Route::middleware(['auth'])->prefix('admin')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    })->name('admin.dashboard');
+
+    Route::get('/users', function () {
+        return view('admin.users');
+    })->name('admin.users');
+
+    Route::get('/settings', function () {
+        return view('admin.settings');
+    })->name('admin.settings');
+});
+
+Route::get('/login', function () {
+    return "Page de connexion (à implémenter)";
+})->name('login');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
