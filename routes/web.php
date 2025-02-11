@@ -26,9 +26,6 @@ Route::get('/view', function () {
     return view('acceuil');
 })->name('accueil');
 
-
-Route::get('/test', [App\Http\Controllers\TestController::class, 'we']);
-
 Route::get('/home/{name}', function ($name) {
     return "Bonjour $name";
 });
